@@ -21,15 +21,28 @@ Aula
   <video  width="100%" controls>
       <source src="{{aula.aula.url}}" type="video/mp4">
     </video>
-  <hr>
 
-  <h1>Faça seu comentário: </h1>
-  <input id="comentario" type="text" placeholder="Comentário..." class="form-control">
-  <br>
-  <input onclick="#" type="button" value="Enviar" class="btn btn-success btn-lg">
-  <hr>
- 
- 
+  
+<hr>
+<html>
+<body>
 
+<p id="paragrafo"><b>Clique no botão abaixo para concorrer a este curso:</b></p>
+
+<button onclick="funcao()"><b>Concorrer</b></button>
+
+<script>
+function funcao() {
+    document.getElementById("paragrafo").innerHTML = "Pronto, você já está concorrendo!";
+}
+</script>
+
+</body>
+</html>
+
+  <hr>
+  <a href="{% url 'sair' %}" class="btn btn-lin"  role="#"><u><font color="blue">Sair - Voltar à página de login</font></u></a>
 </div>
+<br>
+<br>
 {% endblock %}
