@@ -1,3 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="\media\thumb_cursos\estilos.css"> 
+</head>
+<body class="bg">
+
+  <Section class="">
+
+
+
+
+
+    
 {% extends 'base.html'%}
 
 {% block 'titulo'%}
@@ -6,6 +20,7 @@ Cadastro
 {% endblock%}
 
 {% block 'body' %}
+
 <div class="container">
     <br>
     {% if status == '1' %}
@@ -45,23 +60,41 @@ Cadastro
       </div>
       <div class="col-md">
           <br>
-          <h1>Cadastre-se</h1>
+          <h1>
+            <div class="d-inline p-2 bg-dark text-white">Cadastre-se</div>
+            </h1>
           <hr>
+          <br>
+          <br>
           <form method="POST" action="{% url 'valida_cadastro' %}" >{% csrf_token %} 
-              <label>Digite seu nome:</label>
+              <label>
+                <div class="d-inline p-2 bg-dark text-white">Digite seu nome:</div>
+                </label>
               <input class="form-control" type="text" placeholder="Nome..." name = "nome">
               <br>
-              <label>Digite seu Email:</label>
+              <label>
+                <div class="d-inline p-2 bg-dark text-white">Digite seu Email:</div>
+                </label>
               <input class="form-control" type="text" placeholder="E-mail" name = "email">
               <br>
-              <label>Digite sua senha:</label>
+              <label>
+                <p class="d-inline p-2 bg-dark text-white">Digite sua senha:</p>
+                </label>
               <input class="form-control" type="password" placeholder="Senha" name = "senha">
               <br>
               <input class="btn btn-success btn-lg" type="submit">
               <a href="{% url 'login' %}" class="btn btn-info btn-lg">Logar</a>
               <br>
               <br>
-              <a href="http://127.0.0.1:8000/admin/" class="btn btn-lin"  role="#"><u><font color="blue">Administração Do Site</font></u></a>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <a href="http://127.0.0.1:8000/admin/" class="btn btn-lin"  role="#"><u><font color="blue">
+                <p class="font-weight-bold"><h5>Administração Do Site</h5></p></font></u></a>
+                
           </form>
       </div>
       <div class="col-md-3">
@@ -70,4 +103,10 @@ Cadastro
   </div>
 
 </div>
+
 {% endblock %}
+
+ </Section>
+
+<script type="text/javascript" src="scripts.js"></script>
+
