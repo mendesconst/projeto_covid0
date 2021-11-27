@@ -7,3 +7,6 @@ class UsuarioAdmin(admin.ModelAdmin):
     search_fields = ('nome', 'email')
     readonly_fields = ('senha',)
 
+
+
+

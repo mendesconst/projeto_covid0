@@ -8,7 +8,10 @@ Home
 {% block 'body' %}
 <div class="container">
   <br>
-  <h1>Nossos cursos</h1>
+  <br>
+  <h1>Escolha o curso que tem interesse em concorrer </h1>
+  <br>
+  <br>
   <div class="row">
       
 
@@ -22,13 +25,19 @@ Home
                     <p class="card-text">{{i.descricao}}</p>
                     <a href="{% url 'curso' i.id %}" class="btn btn-primary">Acessar</a>
                   </div>
+                  
                 </div>
+                
           </div>
-        
+          
       {% endfor %}
-
+      
 
   </div>
+  <br>
+  <br>
+  <a href="{% url 'sair' %}" class="btn btn-lin"  role="#"><u><font color="blue">Sair - Voltar à página de login</font></u></a>
 
 </div>
 {% endblock %}
+

@@ -8,7 +8,7 @@ Curso
 {% block 'body' %}
 <div class="container">
   <br>
-  <h1>Aulas do curso</h1>
+  <h1>Tem certeza que quer escolher este curso? Se sim, clique em "Acessar" </h1>
   <div class="row">
       
 
@@ -33,6 +33,10 @@ Curso
 
 
   </div>
+
+  <br>
+  <br>
+  <a href="{% url 'sair' %}" class="btn btn-lin"  role="#"><u><font color="blue">Sair - Voltar à página de login</font></u></a>
 
 </div>
 {% endblock %}
