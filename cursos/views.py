@@ -26,3 +26,4 @@ def aula(request, id):
         return render(request, 'aula.html', {'aula': aula})
     else:
         return redirect('/auth/login/?status=2')
+
