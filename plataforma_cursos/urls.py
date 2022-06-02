@@ -4,13 +4,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from usuarios.views import login
+from usuarios.views import cadastro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('usuarios.urls')),
     path('home/', include('cursos.urls')),
-    path('', login, name='home')
+    path('', cadastro, name='home')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
