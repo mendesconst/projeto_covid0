@@ -1,7 +1,7 @@
 from django.db import models
 
 class Cursos(models.Model):
-    nome = models.CharField(max_length = 100)
+    nome_curso = models.CharField(max_length = 100)
     descricao = models.TextField()
     thumb = models.ImageField(upload_to = "thumb_cursos")
 
