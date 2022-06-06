@@ -3,8 +3,8 @@ from .models import Usuario
 
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'email', 'senha')
-    search_fields = ('nome', 'email')
+    list_display = ('nome', 'email', 'senha', 'curso_selecionado')
+    search_fields = ('nome', 'email', 'curso_selecionado')
     readonly_fields = ('senha',)
 
 

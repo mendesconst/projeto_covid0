@@ -6,7 +6,7 @@ class Cursos(models.Model):
     thumb = models.ImageField(upload_to = "thumb_cursos")
 
     def __str__(self) -> str:
-        return self.nome
+        return self.nome_curso
 
 
 class Aulas(models.Model):

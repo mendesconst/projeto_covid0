@@ -6,9 +6,10 @@ import hashlib
 
 def cadastro(request):
     if request.session.get('usuario'):
-        return redirect('/home')
+        return redirect('cadastro.html')
     status=request.GET.get('status')
     return render(request,'cadastro.html', {'status': status})
+
 
 def login(request):
     if request.session.get('usuario'):
@@ -53,6 +54,7 @@ def valida_login(request):
         return redirect('/home')
 
     return HttpResponse('teste')
+
 def sair(request):
     request.session.flush()
     return redirect('/auth/login')
