@@ -6,7 +6,7 @@ import hashlib
 
 def cadastro(request):
     if request.session.get('usuario'):
-        return redirect('cadastro.html')
+        return sair(request)
     status=request.GET.get('status')
     return render(request,'cadastro.html', {'status': status})
 
