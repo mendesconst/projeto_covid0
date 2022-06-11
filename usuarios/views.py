@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Usuario
-from django.shortcuts import redirect
+from cursos.models import Cursos
+from django.shortcuts import redirect, get_object_or_404
 import hashlib
+import time
 
 def cadastro(request):
     if request.session.get('usuario'):
@@ -41,6 +43,16 @@ def valida_cadastro(request):
     except:
         return HttpResponse('ERRO INTERNO DO SISTEMA, TENTE NOVAMENTE EM INSTANTES')
 
+def curso_escolhido(request, id):
+        cursoEscolhido = Cursos.objects.get(id = id)
+        request_usuario = request.session.get('usuario')
+        request_usuario = Usuario.objects.get(id=request_usuario)
+        request_usuario.curso_selecionado = cursoEscolhido
+        usuario=request_usuario
+        usuario.save()
+        time.sleep(5) 
+        return sair(request) 
+
 def valida_login(request):
     email=request.POST.get('email')
     senha=request.POST.get('senha')
@@ -53,7 +65,6 @@ def valida_login(request):
         request.session['usuario'] = usuarios[0].id
         return redirect('/home')
 
-    return HttpResponse('teste')
 
 def sair(request):
     request.session.flush()
