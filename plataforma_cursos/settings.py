@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'plataforma_cursos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'covid0',
+        'USER': 'covid-admin-sql',
+        'PASSWORD': 'C0ntr0l#1a0s94',
+        'HOST': '0.0.0.0',
+        'PORT': '5432',
     }
 }
 
