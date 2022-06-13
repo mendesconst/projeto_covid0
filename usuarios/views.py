@@ -21,14 +21,15 @@ def login(request):
     
 def valida_cadastro(request):
     nome = request.POST.get('nome')
-    email=request.POST.get('email')
+#   token=request.POST.get('token')
+    token=request.POST.get('token')
     senha=request.POST.get('senha')
 
-    usuario_existe=Usuario.objects.filter(email=email)
+    usuario_existe=Usuario.objects.filter(token_cadastro=token)
     if len(senha) < 8 or len(senha) >12:
         return redirect('/auth/cadastro?status=1')
 
-    if len(nome.strip()) == 0 or len(email.strip()) == 0:
+    if len(nome.strip()) == 0 or len(token.strip()) == 0:
         return redirect('/auth/cadastro?status=2')
 
     if len(usuario_existe) > 0:
@@ -37,7 +38,7 @@ def valida_cadastro(request):
         senha = hashlib.sha256(senha.encode()).hexdigest()
         usuario=Usuario(nome=nome,
                         senha=senha,
-                        email=email)
+                        token_cadastro=token)
         usuario.save()
         return redirect('/auth/cadastro?status=0')
     except:
@@ -54,10 +55,10 @@ def curso_escolhido(request, id):
         return sair(request) 
 
 def valida_login(request):
-    email=request.POST.get('email')
+    token=request.POST.get('token')
     senha=request.POST.get('senha')
     senha=hashlib.sha256(senha.encode()).hexdigest()
-    usuarios=Usuario.objects.filter(email=email).filter(senha=senha)
+    usuarios=Usuario.objects.filter(token_cadastro=token)
 
     if len(usuarios) ==0:
         return redirect('/auth/login?status=1')
