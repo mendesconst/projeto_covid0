@@ -56,7 +56,7 @@ def curso_escolhido(request, id):
         request_usuario.curso_selecionado = cursoEscolhido
         usuario=request_usuario
         usuario.save()
-        time.sleep(5) 
+        time.sleep(3) 
         return sair(request) 
 
 def valida_login(request):
