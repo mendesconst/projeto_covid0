@@ -1,3 +1,7 @@
+# Vim swap files #
+##################
+.swp
+
 # Compiled source #
 ###################
 *.com

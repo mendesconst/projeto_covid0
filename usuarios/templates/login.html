@@ -10,7 +10,7 @@ Logar
     <br>
     {% if status == '1' %}
     <div class="alert alert-danger" role="alert">
-        E-mail ou senha inválido!
+        Token ou senha inválida!
       </div>
     {% endif %}
 
@@ -29,17 +29,20 @@ Logar
           <br>
           <br>
           <br>
-          <h1>Login</h1>
+          <h1>Login</h1>Não é cadastrado? <a href="{% url 'cadastro' %}">Clique aqui!</a>
           <hr>
           <form method="POST" action="{% url 'valida_login'%}">{% csrf_token %}
-              <label>Digite seu Email:</label>
-              <input class="form-control" type="text" placeholder="E-mail" name = "email">
+              <label>Digite seu Token:</label>
+              <input class="form-control" type="text" placeholder="Token" name = "token">
               <br>
               <label>Digite sua senha:</label>
               <input class="form-control" type="password" placeholder="Senha" name = "senha">
               <br>
               <input class="btn btn-success btn-lg" type="submit">
-              <a href="{% url 'cadastro' %}" class="btn btn-info btn-lg">Cadastre-se</a>
+              <br>
+              <br>
+              <br>
+              <br>
               <br>
               <br>
               <a href="{% url 'admin:index' %}" class="btn btn-lin"  role="#"><u><font color="blue">Administração Do Site</font></u></a>

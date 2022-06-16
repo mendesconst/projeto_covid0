@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Usuario
+from .models import Usuario, TokenCadastro
 from cursos.models import Cursos
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 import hashlib
 import time
 
@@ -21,11 +21,16 @@ def login(request):
     
 def valida_cadastro(request):
     nome = request.POST.get('nome')
-#   token=request.POST.get('token')
     token=request.POST.get('token')
     senha=request.POST.get('senha')
 
-    usuario_existe=Usuario.objects.filter(token_cadastro=token)
+    if not TokenCadastro.objects.filter(token_cadastro=token).exists():
+        return redirect('/auth/cadastro?status=4')
+
+    else:
+        token_valido = TokenCadastro.objects.filter(token_cadastro=token)
+        usuario_existe=Usuario.objects.filter(token_cadastro=token_valido[0])
+    
     if len(senha) < 8 or len(senha) >12:
         return redirect('/auth/cadastro?status=1')
 
@@ -38,7 +43,7 @@ def valida_cadastro(request):
         senha = hashlib.sha256(senha.encode()).hexdigest()
         usuario=Usuario(nome=nome,
                         senha=senha,
-                        token_cadastro=token)
+                        token_cadastro=token_valido[0])
         usuario.save()
         return redirect('/auth/cadastro?status=0')
     except:
@@ -58,12 +63,14 @@ def valida_login(request):
     token=request.POST.get('token')
     senha=request.POST.get('senha')
     senha=hashlib.sha256(senha.encode()).hexdigest()
-    usuarios=Usuario.objects.filter(token_cadastro=token)
+    token_valido = TokenCadastro.objects.filter(token_cadastro=token)
+    usuario=Usuario.objects.filter(token_cadastro=token_valido[0])
 
-    if len(usuarios) ==0:
+    if len(usuario) ==0:
         return redirect('/auth/login?status=1')
-    elif len(usuarios) > 0:
-        request.session['usuario'] = usuarios[0].id
+    elif len(usuario) > 0:
+        request.session['usuario'] = usuario[0].id
+        time.sleep(3)
         return redirect('/home')
 
 

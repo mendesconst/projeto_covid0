@@ -9,10 +9,9 @@ class TokenCadastro(models.Model):
 
 class Usuario(models.Model):
     nome=models.CharField(max_length=50)
-    email=models.EmailField(null=True)
     senha=models.CharField(max_length=64)
     curso_selecionado=models.ForeignKey(Cursos, on_delete=models.DO_NOTHING, null=True)
-    token_cadastro=models.ForeignKey(TokenCadastro, on_delete=models.DO_NOTHING, null=True)
+    token_cadastro=models.OneToOneField(TokenCadastro, on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self) -> str:
         return self.nome

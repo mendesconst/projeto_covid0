@@ -5,12 +5,6 @@
 </head>
 <body class="bg">
 
-  <Section class="">
-
-
-
-
-
     
 {% extends 'base.html'%}
 
@@ -33,7 +27,7 @@ Página Inicial - Cadastro
     <br>
     {% if status == '2' %}
     <div class="alert alert-danger" role="alert">
-        Email e nome não podem estar vazios
+        Nome e token não podem estar vazios
       </div>
         
     {% endif %}
@@ -41,7 +35,15 @@ Página Inicial - Cadastro
     <br>
     {% if status == '3' %}
     <div class="alert alert-danger" role="alert">
-        Este email já está cadastrado no sistema
+        Este token já está cadastrado no sistema 
+      </div>
+        
+    {% endif %}
+
+    <br>
+    {% if status == '4' %}
+    <div class="alert alert-danger" role="alert">
+        Token inválido, por favor, digite novamente
       </div>
         
     {% endif %}
@@ -53,16 +55,16 @@ Página Inicial - Cadastro
       </div>
         
     {% endif %}
- 
-  <div class="row">
+
+    <div class="row">
       <div class="col-md-3">
 
       </div>
       <div class="col-md">
           <br>
           <h1>
-            <div class="d-inline p-2 bg-dark text-white">Cadastre-se</div>
-            </h1>
+            <div class="d-inline p-1 bg-dark text-white">Cadastre-se</div>
+            </h1><h6 class="alert alert-info p-1">Já tem cadastro?<a class="text-dark" href="{% url 'login' %}"> Clique aqui!</a></h6>
           <hr>
           <br>
           <br>
@@ -73,20 +75,25 @@ Página Inicial - Cadastro
               <input class="form-control" type="text" placeholder="Nome..." name = "nome">
               <br>
               <label>
-                <div class="d-inline p-2 bg-dark text-white">Digite seu Email:</div>
+                <div class="d-inline p-2 bg-dark text-white">Digite seu Token:</div>
                 </label>
-              <input class="form-control" type="text" placeholder="E-mail" name = "email">
+              <input class="form-control" type="text" placeholder="Token" name = "token">
               <br>
               <label>
                 <p class="d-inline p-2 bg-dark text-white">Digite sua senha:</p>
                 </label>
               <input class="form-control" type="password" placeholder="Senha" name = "senha">
               <br>
-              <input class="btn btn-success btn-lg" type="submit">
-              <a href="{% url 'login' %}" class="btn btn-info btn-lg">Logar</a>
+              <a href="{% url 'home' %}"><input class="btn btn-success btn-lg" type="submit"></a>
               <br>
               <br>
               <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+{{usuario_existe}}
               <br>
               <br>
               <br>
