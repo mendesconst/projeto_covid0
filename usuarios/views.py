@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Usuario, TokenCadastro
-from cursos.models import Cursos
+from premios.models import Premio
 from django.shortcuts import redirect
 import hashlib
 import time
@@ -49,11 +49,11 @@ def valida_cadastro(request):
     except:
         return HttpResponse('ERRO INTERNO DO SISTEMA, TENTE NOVAMENTE EM INSTANTES')
 
-def curso_escolhido(request, id):
-        cursoEscolhido = Cursos.objects.get(id = id)
+def premio_escolhido(request, id):
+        premioEscolhido = Premio.objects.get(id = id)
         request_usuario = request.session.get('usuario')
         request_usuario = Usuario.objects.get(id=request_usuario)
-        request_usuario.curso_selecionado = cursoEscolhido
+        request_usuario.premio_selecionado = premioEscolhido
         usuario=request_usuario
         usuario.save()
         time.sleep(3) 

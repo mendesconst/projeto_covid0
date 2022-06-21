@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block 'titulo'%}
-Curso
+Premio
 
 {% endblock%}
 
@@ -16,9 +16,9 @@ Curso
           <div style="margin-top: 20px;" class="col-md">
               <div class="card" style="width: 18rem;">
                   <div class="card-body">
-                    <h5 class="card-img-top"><img src="{{cursoEscolhido.thumb.url}}" alt="Imagem de cartao de desconto de 50 reais das americanas.com" height="100 rem"></h5>
-                    <p class="card-text">{{cursoEscolhido.nome_curso}}</p>
-                    <a href="{% url 'curso_escolhido' cursoEscolhido.id %}" class="btn btn-primary"><button onclick='funcao()'>Concorrer!</button></a>
+                    <h5 class="card-img-top"><img src="{{premioEscolhido.thumb.url}}" alt="Imagem de cartao de desconto de 50 reais das americanas.com" height="100 rem"></h5>
+                    <p class="card-text">{{premioEscolhido.nome_premio}}</p>
+                    <a href="{% url 'premio_escolhido' premioEscolhido.id %}" class="btn btn-primary"><button onclick='funcao()'>Concorrer!</button></a>
                   </div>
                 </div>
           </div>
@@ -39,4 +39,3 @@ function funcao() {
 {% endblock %}
 
 
-.

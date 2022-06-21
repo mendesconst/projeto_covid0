@@ -9,7 +9,7 @@ from usuarios.views import cadastro
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('usuarios.urls')),
-    path('home/', include('cursos.urls')),
+    path('home/', include('premios.urls')),
     path('', cadastro, name='home')
 ]
 

@@ -1,5 +1,5 @@
 """
-ASGI config for plataforma_cursos project.
+ASGI config for plataforma_premios project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'plataforma_cursos.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'plataforma_premios.settings')
 
 application = get_asgi_application()
