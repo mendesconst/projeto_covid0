@@ -56,7 +56,7 @@ def premio_escolhido(request, id):
         request_usuario.premio_selecionado = premioEscolhido
         usuario=request_usuario
         usuario.save()
-        time.sleep(3) 
+        time.sleep(300) 
         return sair(request) 
 
 def valida_login(request):
@@ -70,7 +70,6 @@ def valida_login(request):
         return redirect('/auth/login?status=1')
     elif len(usuario) > 0:
         request.session['usuario'] = usuario[0].id
-        time.sleep(3)
         return redirect('/home')
 
 

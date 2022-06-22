@@ -18,13 +18,15 @@ Premio
                   <div class="card-body">
                     <h5 class="card-img-top"><img src="{{premioEscolhido.thumb.url}}" alt="Imagem de cartao de desconto de 50 reais das americanas.com" height="100 rem"></h5>
                     <p class="card-text">{{premioEscolhido.nome_premio}}</p>
-                    <a href="{% url 'premio_escolhido' premioEscolhido.id %}" class="btn btn-primary"><button onclick='funcao()'>Concorrer!</button></a>
+                    <a id="button" href="{% url 'premio_escolhido' premioEscolhido.id %}" class="btn btn-primary"><button onclick='funcao()'>Concorrer!</button></a>
                   </div>
                 </div>
           </div>
 <script>
 function funcao() {
     document.getElementById("aviso").innerHTML = "Pronto! Você já está concorrendo!";
+    hideButton = document.getElementById("button");
+    hideButton.style.display = "none";
 }
 </script>
 
