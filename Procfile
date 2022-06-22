@@ -1,2 +1,2 @@
 release: python manage.py migrate 
-web: gunicorn plataforma_cursos.wsgi 
+web: gunicorn plataforma_premios.wsgi 
