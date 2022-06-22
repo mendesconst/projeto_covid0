@@ -56,8 +56,7 @@ def premio_escolhido(request, id):
         request_usuario.premio_selecionado = premioEscolhido
         usuario=request_usuario
         usuario.save()
-        time.sleep(300) 
-        return sair(request) 
+        return HttpResponse(status=204)
 
 def valida_login(request):
     token=request.POST.get('token')
