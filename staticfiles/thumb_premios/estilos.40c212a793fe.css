@@ -1,0 +1,13 @@
+body, html{
+    height: 100%;
+    margin: 0;
+}
+
+.bg{
+    background-image: url("imagem_cadastro.5bf7a8983e57.jpg");
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
